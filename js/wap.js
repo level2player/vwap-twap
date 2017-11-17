@@ -92,8 +92,8 @@ function loadData()
                 total_sum_volum+=value.volum;
                 total_price_sum+=value.price;
             });
-            var vwapValue=total_sum/total_sum_volum;
-            var twapValue=total_price_sum/arrRes.length;
+            var vwapValue=(total_sum/total_sum_volum).toFixed(4);
+            var twapValue=(total_price_sum/arrRes.length).toFixed(4);
             vwapChartArry.push(vwapValue);
             twapChartArry.push(twapValue);
         }

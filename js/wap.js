@@ -60,7 +60,8 @@ function getMinutesArry(startime,endtime,minute){
 
 function loadData()
 {
-    var secondArry= getMinutesArry('2013-01-03 13:00','2013-01-03 16:00',5)
+    //兼容IE、谷歌
+    var secondArry= getMinutesArry('2013/01/03 13:00','2013/01/03 16:00',5)
     var logArry=new Array();
     Enumerable.From(arguments[1]).ForEach(function(value,index){
         var tmp_time=value.trade_time.substring(0,4);

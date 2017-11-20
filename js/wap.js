@@ -104,9 +104,6 @@ function loadData()
 
 function loadChart()
 {
-    console.log(arguments[0].length);
-    console.log(arguments[1].length);
-    console.log(arguments[2].length);
     var ctx = document.getElementById("chart_vwap").getContext('2d');
     var myChart = new Chart(ctx, {
         type: 'line',

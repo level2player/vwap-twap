@@ -61,7 +61,7 @@ function getMinutesArry(startime,endtime,minute){
 function loadData()
 {
     //兼容IE、谷歌
-    var secondArry= getMinutesArry('2013/01/03 13:00','2013/01/03 16:00',5)
+    var secondArry= getMinutesArry('2013/01/03 12:55','2013/01/03 16:00',5)
     var logArry=new Array();
     Enumerable.From(arguments[1]).ForEach(function(value,index){
         var tmp_time=value.trade_time.substring(0,4);
@@ -69,11 +69,13 @@ function loadData()
     });
     var vwapChartArry=new Array();
     var twapChartArry=new Array();
+    console.log(secondArry)
     for(i=0;i<secondArry.length;i++)
     {   
         if (i==0)
         {
             var arrRes = Enumerable.From(logArry).Where(function(x){return x.time<secondArry[i]}).ToArray();
+            console.log(arrRes)
         }
         else if ((i+1)==secondArry.length)
         {
@@ -104,11 +106,12 @@ function loadData()
 
 function loadChart()
 {
+    arguments[0].shift()
     var ctx = document.getElementById("chart_vwap").getContext('2d');
     var myChart = new Chart(ctx, {
         type: 'line',
         data: {
-            labels : arguments[0],
+            labels :  arguments[0],
             datasets : [
                 {
                     label:"VWAP",
